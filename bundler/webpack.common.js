@@ -4,7 +4,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
 module.exports = {
-  entry: path.resolve(__dirname, '../assets/js/03-BasicScene/script.js'),
+  entry: path.resolve(__dirname, '../assets/js/script.js'),
   output: {
     hashFunction: 'xxhash64',
     filename: 'bundle.[contenthash].js',
