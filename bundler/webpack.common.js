@@ -59,6 +59,15 @@ module.exports = {
           filename: 'assets/fonts/[hash][ext]',
         },
       },
+
+      // Shader
+      {
+        test: /\.(glsl|vs|fs|vert|frag)$/,
+        type: 'asset/source',
+        generator: {
+          filename: 'assets/images/[hash][ext]',
+        },
+      },
     ],
   },
 }
