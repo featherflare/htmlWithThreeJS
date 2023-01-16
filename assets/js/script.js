@@ -19,9 +19,9 @@ const scene = new THREE.Scene()
 /**
  * Loaders
  */
-const textureLoader = new THREE.TextureLoader()
 const gltfLoader = new GLTFLoader()
 const cubeTextureLoader = new THREE.CubeTextureLoader()
+const textureLoader = new THREE.TextureLoader()
 
 /**
  * Update all materials
@@ -32,7 +32,7 @@ const updateAllMaterials = () =>
     {
         if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial)
         {
-            child.material.envMapIntensity = 1
+            child.material.envMapIntensity = 2.5
             child.material.needsUpdate = true
             child.castShadow = true
             child.receiveShadow = true
@@ -57,35 +57,16 @@ scene.background = environmentMap
 scene.environment = environmentMap
 
 /**
- * Material
- */
-
-// Textures
-const mapTexture = textureLoader.load('/models/LeePerrySmith/color.jpg')
-mapTexture.encoding = THREE.sRGBEncoding
-
-const normalTexture = textureLoader.load('/models/LeePerrySmith/normal.jpg')
-
-// Material
-const material = new THREE.MeshStandardMaterial( {
-    map: mapTexture,
-    normalMap: normalTexture
-})
-
-/**
  * Models
  */
 gltfLoader.load(
-    '/models/LeePerrySmith/LeePerrySmith.glb',
+    '/models/DamagedHelmet/glTF/DamagedHelmet.gltf',
     (gltf) =>
     {
-        // Model
-        const mesh = gltf.scene.children[0]
-        mesh.rotation.y = Math.PI * 0.5
-        mesh.material = material
-        scene.add(mesh)
+        gltf.scene.scale.set(2, 2, 2)
+        gltf.scene.rotation.y = Math.PI * 0.5
+        scene.add(gltf.scene)
 
-        // Update materials
         updateAllMaterials()
     }
 )
@@ -98,7 +79,7 @@ directionalLight.castShadow = true
 directionalLight.shadow.mapSize.set(1024, 1024)
 directionalLight.shadow.camera.far = 15
 directionalLight.shadow.normalBias = 0.05
-directionalLight.position.set(0.25, 2, - 2.25)
+directionalLight.position.set(0.25, 3, - 2.25)
 scene.add(directionalLight)
 
 /**
@@ -147,8 +128,8 @@ renderer.shadowMap.enabled = true
 renderer.shadowMap.type = THREE.PCFShadowMap
 renderer.physicallyCorrectLights = true
 renderer.outputEncoding = THREE.sRGBEncoding
-renderer.toneMapping = THREE.ACESFilmicToneMapping
-renderer.toneMappingExposure = 1
+renderer.toneMapping = THREE.ReinhardToneMapping
+renderer.toneMappingExposure = 1.5
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
