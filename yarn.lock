@@ -4466,6 +4466,11 @@
     "select-hose" "^2.0.0"
     "spdy-transport" "^3.0.0"
 
+"spectorjs@^0.9.27":
+  "integrity" "sha512-eujFAuFWdW9S5wT++ks2o1zShN5Vd8Zple2NB6oM5G5tXqNtGbk6Yg3mfCpL03Bbq0djqGJAeswYk0VfpuPfIQ=="
+  "resolved" "https://registry.npmjs.org/spectorjs/-/spectorjs-0.9.27.tgz"
+  "version" "0.9.27"
+
 "stats.js@^0.17.0":
   "integrity" "sha512-hNKz8phvYLPEcRkeG1rsGmV5ChMjKDAWU7/OJJdDErPBNChQXxCo3WZurGpnWc6gZhAzEPFad1aVgyOANH1sMw=="
   "resolved" "https://registry.npmjs.org/stats.js/-/stats.js-0.17.0.tgz"
