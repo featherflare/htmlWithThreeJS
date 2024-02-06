@@ -22,7 +22,7 @@ const scene = new THREE.Scene()
  */
 // Geometry
 const geometry = new THREE.PlaneGeometry(1, 1, 32, 32)
-
+//
 // Material
 const material = new THREE.ShaderMaterial({
   vertexShader: testVertexShader,
